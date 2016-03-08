@@ -25,5 +25,8 @@ var (
 )
 
 func GetVerifier(key VerifierKey) TokenVerifier {
-	return verifiers[key]
+	if v, ok := verifiers[key]; ok {
+		return v
+	}
+	return nil
 }
